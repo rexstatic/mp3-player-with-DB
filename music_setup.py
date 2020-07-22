@@ -4,6 +4,7 @@ from pygame import mixer
 mixer.init()
 
 OUT_VAR = 0
+
 class MusicSetup:
     """Commands for tkinter button commands
 
@@ -52,12 +53,13 @@ class MusicSetup:
         """
         return mixer.music.stop()
 
+    def start_player(self):
+        mixer.music.set_volume(0.5)
+        mixer.music.load(songs[OUT_VAR])
+        mixer.music.play()
+
 songs = ['sounds/Beethoven-5th.mp3',
          'sounds/1812-overture-finale.mp3',
          'sounds/Ave-maria-instrumental.mp3',
          'sounds/Chopin-etude-op-10-no-4.mp3',
          'sounds/Twinkle-twinkle-little-star-mozart.mp3']
-
-mixer.music.set_volume(0.5)
-mixer.music.load(songs[OUT_VAR])
-mixer.music.play()
